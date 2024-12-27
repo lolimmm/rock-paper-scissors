@@ -31,44 +31,59 @@ function getEleccionHumana() {
 function ronda() {
     let seleccionComputadora = getEleccionComputadora();
     let seleccionHumano = getEleccionHumana();
-    console.log(`Computadora: ${seleccionComputadora}. Humano: ${seleccionHumano}`);
+    let resultado = `<br>Computadora: ${seleccionComputadora}. Usuario: ${seleccionHumano}<br>`;
 
     if ((seleccionHumano === "piedra" && seleccionComputadora === "tijeras") || (seleccionHumano === "papel" && seleccionComputadora === "piedra") || (seleccionHumano === "tijeras" && seleccionComputadora === "papel")) {
-        console.log("Humano ha ganado esta ronda");
+        resultado += "- Usuario ha ganado esta ronda<br>";
         puntosHumano++;
     }
     else if (seleccionHumano === seleccionComputadora) {
-        console.log("Ha habido un empate");
+        resultado += "- Ha habido un empate<br>";
     }
     else {
-        console.log("Computadora ha ganado esta ronda");
+        resultado += "- Computadora ha ganado esta ronda<br>";
         puntosComputadora++;
     }
+
+    return resultado;
 }
 
 
 /* Lógica para jugar todo el juego. 5 rondas */
 // Esta función va a llevar un registro de la puntuación y declara un ganador final
 function jugar() {
-    let resultado;
+    let resultado = "";
     for (let i = 0; i < 5; i++) {
-        ronda();
+        resultado += `<br>Ronda ${i+1}`;
+        resultado += ronda();
     }
-    console.log(`Computadora: ${puntosComputadora}. Humano: ${puntosHumano}`);
+    resultado += `<br>Computadora: ${puntosComputadora}. Usuario: ${puntosHumano}<br>`;
 
     if (puntosHumano === puntosComputadora) {
-        resultado = "Empate";
+        resultado += "¡Empate!";
     }
     else if (puntosHumano >= puntosComputadora) {
-        resultado = "Ha ganado Humano";
+        resultado += "¡Ha ganado Usuario!";
     }
     else {
-        resultado = "Ha ganado Computadora";
+        resultado += "¡Ha ganado Computadora!";
     }
-    return console.log(resultado);
+    return resultado;
 }
 
-jugar();
 
+/* Mostramos el resultado por pantalla */ 
+let mensaje;
 
+let btn = document.querySelector("#btn");
+btn.addEventListener("click", function() {
+    
+    mensaje = jugar();
+    p.innerHTML = mensaje;
+    respuesta.appendChild(p);
+    
+});
+
+let respuesta = document.querySelector("#respuesta");
+let p = document.createElement("p");
 
