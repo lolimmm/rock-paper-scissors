@@ -1,23 +1,27 @@
 * {
     margin: 0px;
     padding: 0px;
-    font-family: Arial, sans-serif;
 }
 
 body {
     padding: 10px;
-    background-color: #f3eeee;
+    background-color: #f0f4f8;
+    font-family: Arial, sans-serif;
 }
 
 div#contenedor {
-    border: 1px solid #aaaaaa;
+    border: 1px solid #ddd;
+    background-color: #f4f4f4;
     width: max-content;
     max-width: 600px;
     margin: auto;
     padding: 10px 20px;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
+    /*box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.5);*/
+    
 }
 
-h1, h2 {
+h1, h2, h3, h4, p {
     margin-bottom: 10px;
 }
 
@@ -30,8 +34,7 @@ button {
     border-radius: 8px;
     cursor: pointer;
     display: block;
-    margin: auto;
-    margin-top: 20px;
+    margin: 20px auto;
     transition: background-color 0.3s, transform 0.2s;
 }
 
@@ -48,4 +51,8 @@ button:active {
 #respuesta {
     padding: 10px;
     margin-bottom: 10px;
+}
+
+#botones {
+    display: flex;
 }
