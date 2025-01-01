@@ -72,7 +72,26 @@ function jugar(opcionHumano) {
         contador=0;
         puntosComputadora=0;
         puntosHumano=0;
+
+        // Aparece el botón nueva partida, limpia la pantalla
+        let resetPartida = document.createElement("button");
+        resetPartida.innerHTML = "Nueva Partida";
+
+        let respuesta = document.querySelector("#respuesta");
+        let boton = document.querySelector("#respuesta button"); // Seleccionamos el boton
+
+        // Si el contenedor no contiene ningún botón se añade uno
+        if(!respuesta.contains(boton)) {
+            respuesta.appendChild(resetPartida);
+        }
+        
+        // Al pulsar el botón recarga la página
+        resetPartida.addEventListener("click", () => {
+            location.reload(); 
+        });
     }
+
+    
     
     contador++;
     return resultado;
